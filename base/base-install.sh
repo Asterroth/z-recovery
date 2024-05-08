@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-downloader='./config/package-downloader.sh'
+downloader='./config/packages-downloader.sh'
 netplan_conf_dir='/etc/netplan'
 netplan_yaml='./config/99-basic-config.yaml'
 hostname='basic'
