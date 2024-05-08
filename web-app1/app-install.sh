@@ -13,7 +13,6 @@ default_conf_dir='/etc/apache2/sites-enabled'
 default_conf='/etc/apache2/sites-enabled/000-default.conf'
 
 apt install -yq apache2
-mkdir $html_path/8081
 
 rm -f $html_path/index.html
 cp ./config/index1.html $html_path/index.html
@@ -24,4 +23,5 @@ cp ./config/ports1.conf $ports_conf
 mv $default_conf $default_conf_dir/000-default.conf.original
 cp ./config/000-default1.conf $default_conf_dir/000-default.conf
 
-systemctl reload apache2
+systemctl start apache2
+systemctl enable apache2
