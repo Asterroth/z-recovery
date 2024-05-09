@@ -22,11 +22,10 @@ nginx_default_conf=$sites_enabl/default
 # Install nginx
 apt -yq install nginx
 
-[ ! -L "$nginx_default_conf" ] || rm -f "$nginx_default_conf"
-cp "$nginx_src_proxy_conf" "$nginx_trg_proxy_conf"
-chmod ugo+r "$nginx_trg_proxy_conf"
-ln -s -f "$nginx_trg_proxy_conf" "$etc_sites_enabl/"
-[ ! -L "$nginx_default_conf" ] || rm -f "$nginx_default_conf"
+cp $nginx_src_proxy_conf $nginx_trg_proxy_conf
+chmod ugo+r $nginx_trg_proxy_conf
+ln -s -f $nginx_trg_proxy_conf $etc_sites_enabl/
+[ ! -L $nginx_default_conf ] || rm -f $nginx_default_conf
 
 systemctl enable nginx
 systemctl restart nginx
