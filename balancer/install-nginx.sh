@@ -20,7 +20,7 @@ nginx_default_conf=$sites_enabl/default
 
 
 # Install nginx
-apt -yq install nginx
+apt -yq install nginx nfs-common
 
 cp $nginx_src_proxy_conf $nginx_trg_proxy_conf
 chmod ugo+r $nginx_trg_proxy_conf

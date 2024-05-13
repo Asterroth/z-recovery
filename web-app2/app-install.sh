@@ -12,7 +12,7 @@ ports_conf='/etc/apache2/ports.conf'
 default_conf_dir='/etc/apache2/sites-enabled'
 default_conf='/etc/apache2/sites-enabled/000-default.conf'
 
-apt install -yq apache2
+apt install -yq apache2 nfs-common
 
 rm -f $html_path/index.html
 cp ./config/index2.html $html_path/index.html
