@@ -22,6 +22,9 @@ nginx_default_conf=$sites_enabl/default
 # Install nginx
 apt -yq install nginx nfs-common
 
+mkdir /mnt/backup-data
+mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
+
 cp $nginx_src_proxy_conf $nginx_trg_proxy_conf
 chmod ugo+r $nginx_trg_proxy_conf
 ln -s -f $nginx_trg_proxy_conf $etc_sites_enabl/

@@ -14,6 +14,9 @@ default_conf='/etc/apache2/sites-enabled/000-default.conf'
 
 apt install -yq apache2 nfs-common
 
+mkdir /mnt/backup-data
+mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
+
 rm -f $html_path/index.html
 cp ./config/index2.html $html_path/index.html
 
