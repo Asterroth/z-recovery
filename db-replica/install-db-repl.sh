@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-mysql_src_ip='192.168.1.13'
+mysql_src_ip='192.168.100.184'
 repl_usr_name='replica'
 repl_usr_pass='secret'
 bcp_usr_name='backup'
