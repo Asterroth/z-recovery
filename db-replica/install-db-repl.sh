@@ -13,7 +13,7 @@ bak_usr_name='backup'
 bak_usr_pass='secret'
 mysqld_cnf_path='/etc/mysql/mysql.conf.d/mysqld.cnf'
 mysqld_source_cfg='./config/mysql-src.cnf'
-mysqld_replica_cfg='./config/msql-repl.cnf'
+mysqld_replica_cfg='./config/mysql-repl.cnf'
 mysqld_err_log_path='/var/log/mysql/error.log'
 
 fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
