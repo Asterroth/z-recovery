@@ -15,7 +15,7 @@ app_usr_name='wordpress_user'
 app_usr_pass='secret'
 app_db_name='app_db'
 mysqld_cnf_path='/etc/mysql/mysql.conf.d/mysqld.cnf'
-mysqld_new_cfg='./mysql-cfg/mysqld_source.cnf'
+mysqld_new_cfg='./config/mysql-src.cnf'
 mysqld_err_log_path='/var/log/mysql/error.log'
 
 
@@ -28,11 +28,11 @@ mkdir /mnt/backup-data
 echo $fstab_record >> /etc/fstab
 mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
 
-cp "$mysqld_new_cfg" "$mysqld_cnf_path"
+cp $mysqld_new_cfg $mysqld_cnf_path
 chmod ugo+r "$mysqld_cnf_path"
 
 systemctl restart mysql.service
-! grep -s -e "err" -e "warn" "$mysqld_err_log_path"
+! grep -s -e "err" -e "warn" $mysqld_err_log_path
 
 # Create replica user
 mysql <<EOF
