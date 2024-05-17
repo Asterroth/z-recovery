@@ -22,7 +22,7 @@ mysqld_err_log_path='/var/log/mysql/error.log'
 # Install nginx
 fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
 
-apt-get install -yq mysql-server-8.0 nfs-common
+apt install -yq mysql-server-8.0 nfs-common
 
 mkdir /mnt/backup-data
 echo $fstab_record >> /etc/fstab
