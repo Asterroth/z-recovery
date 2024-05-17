@@ -9,8 +9,8 @@ fi
 mysql_src_ip='192.168.100.184'
 repl_usr_name='replica'
 repl_usr_pass='secret'
-bcp_usr_name='backup'
-bcp_usr_pass='secret'
+bak_usr_name='backup'
+bak_usr_pass='secret'
 mysqld_cnf_path='/etc/mysql/mysql.conf.d/mysqld.cnf'
 mysqld_source_cfg='./config/mysql-src.cnf'
 mysqld_replica_cfg='./config/msql-repl.cnf'
@@ -36,9 +36,9 @@ EOF
 
 # Create backup user
 mysql <<EOF
-DROP USER IF EXISTS $bcp_usr_name@'%';
-CREATE USER $bcp_usr_name@'%' IDENTIFIED WITH 'caching_sha2_password' BY '$bcp_usr_pass';
-GRANT ALL ON *.* TO $bcp_usr_name@'%'; -- I just don't want to deal with MySQL priviledge system.
+DROP USER IF EXISTS $bak_usr_name@'%';
+CREATE USER $bak_usr_name@'%' IDENTIFIED WITH 'caching_sha2_password' BY '$bak_usr_pass';
+GRANT ALL ON *.* TO $bak_usr_name@'%'; -- I just don't want to deal with MySQL priviledge system.
 FLUSH PRIVILEGES;
 EOF
 
@@ -46,7 +46,10 @@ cp "$mysqld_replica_cfg" "$mysqld_cnf_path"
 chmod ugo+r "$mysqld_cnf_path"
 systemctl restart mysql.service
 cat "$mysqld_err_log_path" | grep -s -e "err" -e "warn"
-mysql << EOF
+
+mysql <<EOF
+STOP REPLICA;
+CHANGE REPLICATION SOURCE TO SOURCE_HOST=$mysql_src_ip, SOURCE_USER=$repl_usr_name, SOURCE_PASSWORD=$repl_usr_pass, SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
 START REPLICA;
 SHOW REPLICA STATUS\G
 EOF
