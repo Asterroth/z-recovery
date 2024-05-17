@@ -9,11 +9,11 @@ fi
 
 # netplan
 netplan_etc_dir='/etc/netplan'
-netplan_src_path='./config/00-app-config.yaml'
-netplan_cfg_name='00-app-config.yaml'
-hostname='app1'
+netplan_src_path='./config/00-db-src-config.yaml'
+netplan_cfg_name='00-db-src-config.yaml'
+hostname='db-src'
 
-new_ip4rules='./config/app-net-rules.sh'
+new_ip4rules='./config/db-src-net-rules.sh'
 etc_ip4_rules='/etc/iptables/rules.v4'
 
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
@@ -28,6 +28,5 @@ echo $hostname > /etc/hostname
 hostname $hostname
 rm $netplan_etc_dir/* || true
 cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name
-
-echo "New network configuration applied! Please re-connect with new IP!"
+echo "\n\nNew network configuration applied!\nPlease re-connect with new IP!"
 netplan apply
