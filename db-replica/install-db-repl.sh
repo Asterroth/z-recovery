@@ -24,6 +24,8 @@ mkdir /mnt/backup-data
 echo $fstab_record >> /etc/fstab
 mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
 
+systemctl restart mysql.service
+! grep -s -e "err" -e "warn" $mysqld_err_log_path
 
 # Create replica user
 mysql <<EOF
