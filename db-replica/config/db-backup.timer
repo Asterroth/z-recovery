@@ -1,0 +1,11 @@
+[Unit]
+Description="Run db-backup.service 5min after boot and every 1 hour relative to activation time"
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=1h
+OnCalendar=*-*-* *:01:01
+Unit=db-backup.service
+
+[Install]
+WantedBy=multi-user.target

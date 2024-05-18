@@ -60,3 +60,5 @@ apt -yq install prometheus-node-exporter
 systemctl enable prometheus-node-exporter
 systemctl start prometheus-node-exporter
 
+cp ./config/db-backup* /etc/systemd/system/
+systemctl enable --now db-backup.timer

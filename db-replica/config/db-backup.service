@@ -1,0 +1,5 @@
+[Unit]
+Description="MySQL DB backup"
+
+[Service]
+ExecStart=/usr/local/bin/db-backup.sh
