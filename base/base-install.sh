@@ -16,3 +16,6 @@ hostname='basic'
 cp $netplan_yaml $netplan_conf_dir/
 netplan apply
 echo $hostname > /etc/hostname
+
+timedatectl set-timezone Europe/Moscow
+timedatectl set-ntp true
