@@ -36,3 +36,7 @@ ln -s -f $nginx_trg_proxy_conf $etc_sites_enabl/
 systemctl enable nginx
 systemctl restart nginx
 
+apt -yq install prometheus-node-exporter
+systemctl enable --now prometheus-node-exporter
+
+

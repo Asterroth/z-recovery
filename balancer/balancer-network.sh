@@ -10,7 +10,7 @@ fi
 # netplan
 netplan_etc_dir='/etc/netplan'
 netplan_src_path='./config/00-balancer-config.yaml'
-netplan_cfg_name='00-app-config.yaml'
+netplan_cfg_name='00-balancer-config.yaml'
 hostname='balancer'
 
 new_ip4rules='./config/balancer-net-rules.sh'

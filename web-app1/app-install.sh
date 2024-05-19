@@ -30,3 +30,6 @@ cp ./config/000-default1.conf $default_conf_dir/000-default.conf
 
 systemctl start apache2
 systemctl enable apache2
+
+apt -yq install prometheus-node-exporter
+systemctl enable --now prometheus-node-exporter

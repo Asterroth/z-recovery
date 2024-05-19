@@ -19,3 +19,6 @@ exportfs -ar
 
 systemctl enable nfs-server
 systemctl start nfs-server
+
+apt -yq install prometheus-node-exporter
+systemctl enable --now prometheus-node-exporter
