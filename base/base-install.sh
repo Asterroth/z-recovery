@@ -14,8 +14,14 @@ hostname='basic'
 "$downloader"
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
 cp $netplan_yaml $netplan_conf_dir/
-netplan apply
+
 echo $hostname > /etc/hostname
 
 timedatectl set-timezone Europe/Moscow
 timedatectl set-ntp true
+
+echo "*****"
+echo "New network configuration applied!"
+echo "----------------------------------"
+echo "  Please re-connect with new IP!  "
+netplan apply

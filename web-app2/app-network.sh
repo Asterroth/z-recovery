@@ -28,5 +28,8 @@ echo $hostname > /etc/hostname
 hostname $hostname
 rm $netplan_etc_dir/* || true
 cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name
-echo "New network configuration applied! Please re-connect with new IP!"
+echo "*****"
+echo "New network configuration applied!"
+echo "----------------------------------"
+echo "  Please re-connect with new IP!  "
 netplan apply
