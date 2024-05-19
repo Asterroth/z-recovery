@@ -18,7 +18,7 @@ etc_ip4_rules='/etc/iptables/rules.v4'
 
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-apt -yq install iptables-persistent
+apt -yqq install iptables-persistent > /dev/null
 $new_ip4rules
 iptables-save > $etc_ip4_rules
 
