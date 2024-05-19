@@ -8,7 +8,8 @@ fi
 
 mkdir /mnt/backup-data
 chown nobody:nogroup /mnt/backup-data
-
+mkdir /mnt/backup-data/db-backup
+mkdir /mnt/backup-data/tables-backup
 
 apt install -yq nfs-kernel-server
 
