@@ -35,6 +35,7 @@ GRANT REPLICATION SLAVE ON *.* TO $repl_usr_name@'%';
 FLUSH PRIVILEGES;
 EOF
 
+echo 'REPLICA USER CREATED!'
 
 # Create backup user
 mysql <<EOF
@@ -43,6 +44,8 @@ CREATE USER $bak_usr_name@'%' IDENTIFIED WITH 'caching_sha2_password' BY '$bak_u
 GRANT ALL ON *.* TO $bak_usr_name@'%'; -- I just don't want to deal with MySQL priviledge system.
 FLUSH PRIVILEGES;
 EOF
+
+echo 'BACKUP USER CREATED!'
 
 cp "$mysqld_replica_cfg" "$mysqld_cnf_path"
 chmod ugo+r "$mysqld_cnf_path"
@@ -55,6 +58,8 @@ CHANGE REPLICATION SOURCE TO SOURCE_HOST='$mysql_src_ip', SOURCE_USER='$repl_usr
 START REPLICA;
 SHOW REPLICA STATUS\G
 EOF
+
+echo 'REPLICATION STARTED!'
 
 apt -yq install prometheus-node-exporter
 systemctl enable prometheus-node-exporter
