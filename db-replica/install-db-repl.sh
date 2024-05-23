@@ -54,7 +54,7 @@ cat "$mysqld_err_log_path" | grep -s -e "err" -e "warn"
 
 mysql <<EOF
 STOP REPLICA;
-CHANGE REPLICATION SOURCE TO SOURCE_HOST='$mysql_src_ip', SOURCE_USER='$repl_usr_name', SOURCE_PASSWORD='$repl_usr_pass', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
+CHANGE REPLICATION SOURCE TO SOURCE_HOST="$mysql_src_ip", SOURCE_USER="$repl_usr_name", SOURCE_PASSWORD="$repl_usr_pass", SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
 START REPLICA;
 SHOW REPLICA STATUS\G
 EOF
