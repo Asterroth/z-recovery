@@ -47,11 +47,6 @@ EOF
 
 echo 'BACKUP USER CREATED!'
 
-cp "$mysqld_replica_cfg" "$mysqld_cnf_path"
-chmod ugo+r "$mysqld_cnf_path"
-systemctl restart mysql.service
-cat "$mysqld_err_log_path" | grep -s -e "err" -e "warn"
-
 mysql <<EOF
 STOP REPLICA;
 CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.100.184', SOURCE_USER='replica', SOURCE_PASSWORD='secret', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
@@ -60,6 +55,10 @@ SHOW REPLICA STATUS\G
 EOF
 
 echo 'REPLICATION STARTED!'
+cp "$mysqld_replica_cfg" "$mysqld_cnf_path"
+chmod ugo+r "$mysqld_cnf_path"
+systemctl restart mysql.service
+cat "$mysqld_err_log_path" | grep -s -e "err" -e "warn"
 
 apt -yq install prometheus-node-exporter
 systemctl enable prometheus-node-exporter
