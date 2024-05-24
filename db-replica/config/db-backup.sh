@@ -2,9 +2,9 @@
 
 mysql_backup_usr_name='backup'
 mysql_backup_usr_pass='secret'
-mysql_replica_host='192.168.100.184'
-mysql_do="mysql -h $mysql_replica_host -u $mysql_backup_usr_name -p$mysql_backup_usr_pass --batch --skip-column-names -e "
-mysqldump_do="mysqldump -h $mysql_replica_host -u $mysql_backup_usr_name -p$mysql_backup_usr_pass "
+#mysql_replica_host='192.168.100.184'
+mysql_do="mysql -u$mysql_backup_usr_name -p$mysql_backup_usr_pass --batch --skip-column-names -e "
+mysqldump_do="mysqldump -u$mysql_backup_usr_name -p$mysql_backup_usr_pass "
 db_bcp_dir='/mnt/backup-data/db-backup'
 
 
