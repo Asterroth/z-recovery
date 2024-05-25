@@ -9,7 +9,7 @@ db_bcp_dir='/mnt/backup-data/db-backup'
 
 
 # Choose a target sql file name
-trg_sql_file="$db_bcp_dir/$(date -u +%Y%m%d_%H%M%S)_UTC.sql"
+trg_sql_file="$db_bcp_dir/$(date +%Y%m%d_%H%M%S)_MSK.sql"
 while [ -e "$trg_sql_file" ]
 do
     echo "$0: '$trg_sql_file' is in use. Sleep for 1 second."

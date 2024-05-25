@@ -22,6 +22,6 @@ systemctl enable --now prometheus
 systemctl enable --now prometheus-node-exporter
 
 apt install -yqq adduser libfontconfig1 musl > /dev/null
-dpkg -i ./grafana_10.4.1_amd64.deb
+dpkg -i /mnt/backup-data/grafana_10.4.1_amd64.deb
 
 systemctl enable --now grafana-server
