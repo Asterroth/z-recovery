@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-apt install -yqq prometheus prometheus-node-exporter > /dev/null
+apt install -yqq prometheus prometheus-node-exporter nfs-common > /dev/null
 
 ../common/mount-nfs.sh
 #fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
@@ -14,7 +14,7 @@ apt install -yqq prometheus prometheus-node-exporter > /dev/null
 #echo $fstab_record >> /etc/fstab
 #mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
 
-../common/timedate.sh
+#../common/timedate.sh
 
 cp ./config/prometheus.yml /etc/prometheus/
 
