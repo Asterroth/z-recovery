@@ -38,5 +38,12 @@ systemctl restart nginx
 
 apt -yq install prometheus-node-exporter
 systemctl enable --now prometheus-node-exporter
+#######
 
+dpkg -i /mnt/backup-data/filebeat_8.9.1_amd64-224190-507082.deb
+apt --fix-broken -yqq install
 
+cp ./config/filebeat.yml /etc/filebeat/filebeat.yml
+chmod ugo+r /etc/filebeat/filebeat.yml
+
+systemctl enable --now filebeat.service
