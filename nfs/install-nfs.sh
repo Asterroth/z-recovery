@@ -7,9 +7,9 @@ then
 fi
 
 mkdir /mnt/backup-data
-chown nobody:nogroup /mnt/backup-data
 mkdir /mnt/backup-data/db-backup
 mkdir /mnt/backup-data/tables-backup
+chown nobody:nogroup /mnt/backup-data
 
 apt install -yqq nfs-kernel-server > /dev/null
 

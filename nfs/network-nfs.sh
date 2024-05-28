@@ -10,7 +10,7 @@ fi
 # netplan
 netplan_etc_dir='/etc/netplan'
 netplan_src_path='./config/00-nfs-config.yaml'
-netplan_cfg_name='00-nfs-config.yaml'
+netplan_cfg_name='00-nfs-network-config.yaml'
 hostname='nfs'
 
 new_ip4rules='./config/nfs-net-rules.sh'
@@ -22,9 +22,6 @@ apt -yqq install iptables-persistent > /dev/null
 $new_ip4rules
 iptables-save > $etc_ip4_rules
 
-
-# Update network settings
-echo $hostname > /etc/hostname
 hostname $hostname
 rm $netplan_etc_dir/* || true
 cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name

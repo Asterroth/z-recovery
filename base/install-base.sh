@@ -8,14 +8,13 @@ fi
 
 downloader='./config/packages-downloader.sh'
 netplan_conf_dir='/etc/netplan'
-netplan_yaml='./config/99-basic-config.yaml'
+netplan_yaml='./config/99-basic-network-config.yaml'
 hostname='basic'
 
 $downloader
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
 cp $netplan_yaml $netplan_conf_dir/
 
-#echo $hostname > /etc/hostname
 hostname $hostname
 
 timedatectl set-timezone Europe/Moscow
