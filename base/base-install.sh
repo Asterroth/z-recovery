@@ -15,7 +15,8 @@ $downloader
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
 cp $netplan_yaml $netplan_conf_dir/
 
-echo $hostname > /etc/hostname
+#echo $hostname > /etc/hostname
+hostname $hostname
 
 timedatectl set-timezone Europe/Moscow
 timedatectl set-ntp true
