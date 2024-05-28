@@ -19,9 +19,8 @@ echo $hostname > /etc/hostname
 
 timedatectl set-timezone Europe/Moscow
 timedatectl set-ntp true
-
+netplan apply
 echo "*****"
 echo "New network configuration applied!"
 echo "----------------------------------"
 echo "  Please re-connect with new IP!  "
-netplan apply
