@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
+fstab_record='192.168.100.218:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
 
 if [ ! -d /mnt/backup-data ]
 then
@@ -14,4 +14,4 @@ then
 fi
 
 echo $fstab_record >> /etc/fstab
-mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
+mount 192.168.100.218:/mnt/backup-data /mnt/backup-data/

@@ -11,7 +11,7 @@ ports_conf_dir='/etc/apache2'
 ports_conf='/etc/apache2/ports.conf'
 default_conf_dir='/etc/apache2/sites-enabled'
 default_conf='/etc/apache2/sites-enabled/000-default.conf'
-fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
+fstab_record='192.168.100.218:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
 
 apt install -yq apache2 nfs-common
 

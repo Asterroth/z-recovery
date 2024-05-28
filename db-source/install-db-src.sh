@@ -20,13 +20,13 @@ mysqld_err_log_path='/var/log/mysql/error.log'
 
 
 # Install nginx
-fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
+fstab_record='192.168.100.218:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
 
 apt install -yq mysql-server-8.0 nfs-common
 
 mkdir /mnt/backup-data
 echo $fstab_record >> /etc/fstab
-mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
+mount 192.168.100.218:/mnt/backup-data /mnt/backup-data/
 
 cp $mysqld_new_cfg $mysqld_cnf_path
 chmod ugo+r "$mysqld_cnf_path"

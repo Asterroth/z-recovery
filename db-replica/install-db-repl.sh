@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-mysql_src_ip='192.168.100.184'
+mysql_src_ip='192.168.100.214'
 repl_usr_name='replica'
 repl_usr_pass='secret'
 bak_usr_name='backup'
@@ -16,13 +16,13 @@ mysqld_source_cfg='./config/mysql-src.cnf'
 mysqld_replica_cfg='./config/mysql-repl.cnf'
 mysqld_err_log_path='/var/log/mysql/error.log'
 
-fstab_record='192.168.100.188:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
+fstab_record='192.168.100.218:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
 
 apt install -yq mysql-server-8.0 nfs-common
 
 mkdir /mnt/backup-data
 echo $fstab_record >> /etc/fstab
-mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
+mount 192.168.100.218:/mnt/backup-data /mnt/backup-data/
 
 systemctl restart mysql.service
 ! grep -s -e "err" -e "warn" $mysqld_err_log_path
@@ -52,7 +52,7 @@ cat "$mysqld_err_log_path" | grep -s -e "err" -e "warn"
 
 mysql <<EOF
 STOP REPLICA;
-CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.100.184', SOURCE_USER='replica', SOURCE_PASSWORD='secret', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
+CHANGE REPLICATION SOURCE TO SOURCE_HOST='192.168.100.214', SOURCE_USER='replica', SOURCE_PASSWORD='secret', SOURCE_AUTO_POSITION = 1, GET_SOURCE_PUBLIC_KEY = 1;
 START REPLICA;
 SHOW REPLICA STATUS\G
 EOF
