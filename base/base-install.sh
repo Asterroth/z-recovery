@@ -11,7 +11,7 @@ netplan_conf_dir='/etc/netplan'
 netplan_yaml='./config/99-basic-config.yaml'
 hostname='basic'
 
-"$downloader"
+$downloader
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
 cp $netplan_yaml $netplan_conf_dir/
 
