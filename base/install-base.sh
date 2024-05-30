@@ -17,7 +17,7 @@ cp $netplan_yaml $netplan_conf_dir/
 
 hostname $hostname
 
-cat 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
+echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
 
 timedatectl set-timezone Europe/Moscow
 timedatectl set-ntp true
