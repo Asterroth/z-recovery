@@ -24,7 +24,7 @@ iptables-save > $etc_ip4_rules
 hostname $hostname
 
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
-cp $netplan_yaml $netplan_conf_dir/
+cp $netplan_yml $netplan_conf_dir/
 netplan apply
 
 echo "*****"
