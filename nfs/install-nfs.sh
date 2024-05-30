@@ -22,5 +22,3 @@ systemctl start nfs-server
 
 apt -yqq install prometheus-node-exporter > /dev/null
 systemctl enable --now prometheus-node-exporter
-
-../common/timedate.sh
