@@ -9,8 +9,8 @@ fi
 
 # netplan
 netplan_etc_dir='/etc/netplan'
-netplan_src_path='./config/00-db-src-config.yaml'
-netplan_cfg_name='00-db-src-config.yaml'
+netplan_src_path='./config/00-db-src-network-config.yaml'
+netplan_cfg_name='00-db-src-network-config.yaml'
 hostname='db-src'
 
 new_ip4rules='./config/db-src-net-rules.sh'
