@@ -6,14 +6,14 @@ then
     exit 1
 fi
 
-apt install -yqq prometheus prometheus-node-exporter nfs-common
+apt install -yqq prometheus prometheus-node-exporter
 
 cp ./config/prometheus.yml /etc/prometheus/
 
 systemctl enable --now prometheus
 systemctl enable --now prometheus-node-exporter
 
-apt install -yqq adduser libfontconfig1 musl > /dev/null
+apt install -yqq adduser libfontconfig1 musl
 dpkg -i /mnt/backup-data/grafana_10.4.1_amd64.deb
 
 systemctl enable --now grafana-server

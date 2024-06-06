@@ -29,6 +29,7 @@ hostname $hostname
 rm $netplan_etc_dir/* || true
 cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name
 
+apt install -yqq nfs-common
 ../common/mount-nfs.sh
 ../common/timedate.sh
 
