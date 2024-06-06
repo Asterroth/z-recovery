@@ -13,13 +13,7 @@ default_conf_dir='/etc/apache2/sites-enabled'
 default_conf='/etc/apache2/sites-enabled/000-default.conf'
 #fstab_record='192.168.100.218:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
 
-apt install -yq apache2 nfs-common
-
-../common/mount-nfs.sh
-
-#mkdir /mnt/backup-data
-#echo $fstab_record >> /etc/fstab
-#mount 192.168.100.188:/mnt/backup-data /mnt/backup-data/
+apt install -yq apache2
 
 rm -f $html_path/index.html
 cp ./config/index2.html $html_path/index.html

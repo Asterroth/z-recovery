@@ -12,9 +12,7 @@ nginx_src_proxy_conf='./config/balancer-upstream.conf'
 nginx_trg_proxy_conf=$sites_avail/default
 nginx_default_conf=$sites_enabl/default
 
-apt install -yq nginx nfs-common
-
-../common/mount-nfs.sh
+apt install -yq nginx
 
 cp $nginx_src_proxy_conf $nginx_trg_proxy_conf
 chmod ugo+r $nginx_trg_proxy_conf

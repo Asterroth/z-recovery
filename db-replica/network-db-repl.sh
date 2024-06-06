@@ -26,6 +26,11 @@ iptables-save > $etc_ip4_rules
 # Update network settings
 echo $hostname > /etc/hostname
 hostname $hostname
+
+apt install -yqq nfs-common
+../common/mount-nfs.sh
+../common/timedate.sh
+
 rm $netplan_etc_dir/* || true
 cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name
 echo "*****"

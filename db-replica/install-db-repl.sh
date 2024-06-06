@@ -16,13 +16,7 @@ mysqld_source_cfg='./config/mysql-src.cnf'
 mysqld_replica_cfg='./config/mysql-repl.cnf'
 mysqld_err_log_path='/var/log/mysql/error.log'
 
-fstab_record='192.168.100.218:/mnt/backup-data   /mnt/backup-data   nfs   defaults,timeo=300,retrans=5,_netdev	0 0'
-
-apt install -yq mysql-server-8.0 nfs-common
-
-mkdir /mnt/backup-data
-echo $fstab_record >> /etc/fstab
-mount 192.168.100.218:/mnt/backup-data /mnt/backup-data/
+apt install -yq mysql-server-8.0
 
 systemctl restart mysql.service
 ! grep -s -e "err" -e "warn" $mysqld_err_log_path

@@ -26,6 +26,10 @@ hostname $hostname
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
 cp $netplan_yml $netplan_conf_dir/
 
+apt install -yqq nfs-common
+../common/mount-nfs.sh
+../common/timedate.sh
+
 echo "**********************************"
 echo "New network configuration applied!"
 echo "----------------------------------"
