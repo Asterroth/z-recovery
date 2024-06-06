@@ -9,8 +9,8 @@ fi
 
 # netplan
 netplan_etc_dir='/etc/netplan'
-netplan_src_path='./config/00-prometh-config.yaml'
-netplan_cfg_name='00-prometh-config.yaml'
+netplan_src_path='./config/00-prometh-network-config.yaml'
+netplan_cfg_name='00-prometh-network-config.yaml'
 hostname='prometh'
 
 new_ip4rules='./config/prometh-net-rules.sh'
@@ -28,6 +28,10 @@ echo $hostname > /etc/hostname
 hostname $hostname
 rm $netplan_etc_dir/* || true
 cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name
+
+../common/mount-nfs.sh
+../common/timedate.sh
+
 echo "*****"
 echo "New network configuration applied!"
 echo "----------------------------------"
