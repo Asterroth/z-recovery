@@ -28,7 +28,7 @@ apt install -yqq nfs-common
 ../common/mount-nfs.sh
 ../common/timedate.sh
 
-echo "**********************************"
+echo "*****"
 echo "New network configuration applied!"
 echo "----------------------------------"
 echo "  Please re-connect with new IP!  "
