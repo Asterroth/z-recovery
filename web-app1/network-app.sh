@@ -10,7 +10,7 @@ fi
 # netplan
 netplan_conf_dir='/etc/netplan'
 netplan_yml='./config/00-app-network-config.yaml'
-hostname='app2'
+hostname='app1'
 
 new_ip4rules='./config/app-net-rules.sh'
 etc_ip4_rules='/etc/iptables/rules.v4'
