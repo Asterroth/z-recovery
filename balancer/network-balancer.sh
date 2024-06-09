@@ -6,8 +6,6 @@ then
     exit 1
 fi
 
-
-# netplan
 netplan_conf_dir='/etc/netplan'
 netplan_yml='./config/00-balancer-network-config.yaml'
 hostname='balancer'

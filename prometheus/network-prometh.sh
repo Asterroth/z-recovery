@@ -6,11 +6,8 @@ then
     exit 1
 fi
 
-
-# netplan
-netplan_etc_dir='/etc/netplan'
-netplan_src_path='./config/00-prometh-network-config.yaml'
-netplan_cfg_name='00-prometh-network-config.yaml'
+netplan_conf_dir='/etc/netplan'
+netplan_yml='./config/00-prometh-network-config.yaml'
 hostname='prometh'
 
 new_ip4rules='./config/prometh-net-rules.sh'
@@ -22,19 +19,18 @@ apt -yq install iptables-persistent
 $new_ip4rules
 iptables-save > $etc_ip4_rules
 
-
-# Update network settings
-echo $hostname > /etc/hostname
 hostname $hostname
-rm $netplan_etc_dir/* || true
-cp $netplan_src_path $netplan_etc_dir/$netplan_cfg_name
 
 apt install -yqq nfs-common
 ../common/mount-nfs.sh
 ../common/timedate.sh
 
+[ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
+cp $netplan_yml $netplan_conf_dir/
+netplan apply
+
 echo "*****"
 echo "New network configuration applied!"
 echo "----------------------------------"
 echo "  Please re-connect with new IP!  "
-netplan apply
+
