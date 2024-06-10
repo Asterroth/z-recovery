@@ -1,6 +1,6 @@
 ## Схема стенда
 
-![[2024-05-30_21-04.png]]
+![project_scheme](https://raw.githubusercontent.com/Asterroth/z-recovery/7ac7bed/img.png)
 ### Параметры сети
 Сеть 192.168.100.0/24
 
