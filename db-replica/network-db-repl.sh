@@ -33,4 +33,3 @@ echo "----------------------------------"
 echo "  Please re-connect with new IP!  "
 
 netplan apply
-
