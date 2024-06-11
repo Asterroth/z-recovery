@@ -14,7 +14,7 @@ while [ -e "$trg_sql_file" ]
 do
     echo "$0: '$trg_sql_file' is in use. Sleep for 1 second."
     sleep 1
-    trg_sql_file="$db_bcp_dir/all_db_on_$(date -u +%Y%m%d_%H%M%S)_UTC.sql"
+    trg_sql_file="$db_bcp_dir/all_db_on_$(date +%Y%m%d_%H%M%S)_MSK.sql"
 done
 [ -d  "$db_bcp_dir" ] || mkdir -p "$db_bcp_dir"
 
