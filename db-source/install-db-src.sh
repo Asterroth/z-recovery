@@ -11,7 +11,7 @@ repl_usr_name='replica'
 repl_usr_pass='secret'
 bak_usr_name='backup'
 bak_usr_pass='secret'
-app_usr_name='wordpress_user'
+app_usr_name='app_user'
 app_usr_pass='secret'
 app_db_name='app_db'
 mysqld_cnf_path='/etc/mysql/mysql.conf.d/mysqld.cnf'
@@ -43,12 +43,12 @@ EOF
 
 
 # Create app database
-mysql <<EOF
-CREATE DATABASE IF NOT EXISTS $app_db_name
-    CHARACTER SET = utf8mb4
-    COLLATE = utf8mb4_general_ci
-;
-EOF
+#mysql <<EOF
+#CREATE DATABASE IF NOT EXISTS $app_db_name
+#    CHARACTER SET = utf8mb4
+#    COLLATE = utf8mb4_general_ci
+#;
+#EOF
 
 
 # Create app user
