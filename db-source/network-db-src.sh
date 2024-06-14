@@ -20,6 +20,7 @@ $new_ip4rules
 iptables-save > $etc_ip4_rules
 
 hostname $hostname
+echo $hostname > /etc/hostname
 
 apt install -yqq nfs-common
 ../common/mount-nfs.sh

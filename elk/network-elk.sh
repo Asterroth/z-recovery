@@ -20,6 +20,7 @@ $new_ip4rules
 iptables-save > $etc_ip4_rules
 
 hostname $hostname
+echo $hostname > /etc/hostname
 
 [ ! -e $netplan_conf_dir/* ] || rm $netplan_conf_dir/*
 cp $netplan_yml $netplan_conf_dir/
