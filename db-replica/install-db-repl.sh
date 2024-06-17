@@ -21,7 +21,6 @@ apt install -yq mysql-server-8.0
 systemctl restart mysql.service
 ! grep -s -e "err" -e "warn" $mysqld_err_log_path
 
-# Create replica user
 mysql <<EOF
 DROP USER IF EXISTS $repl_usr_name@'%';
 CREATE USER $repl_usr_name@'%' IDENTIFIED WITH 'caching_sha2_password' BY '$repl_usr_pass';
@@ -30,7 +29,6 @@ FLUSH PRIVILEGES;
 EOF
 echo 'REPLICA USER CREATED!'
 
-# Create backup user
 mysql <<EOF
 DROP USER IF EXISTS $bak_usr_name@'%';
 CREATE USER $bak_usr_name@'%' IDENTIFIED WITH 'caching_sha2_password' BY '$bak_usr_pass';
