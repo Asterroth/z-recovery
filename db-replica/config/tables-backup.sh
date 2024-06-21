@@ -2,7 +2,7 @@
 
 user_name='backup'
 user_pass='secret'
-repl_host='192.168.100.214'
+repl_host='192.168.100.215'
 mysql_do="mysql -h $repl_host -u$user_name -p$user_pass --batch --skip-column-names -e "
 mysqldump_do="mysqldump -h $repl_host -u$user_name -p$user_pass "
 tbl_base_bcp_dir='/mnt/backup-data/tables-backup'
