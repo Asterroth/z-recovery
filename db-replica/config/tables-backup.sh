@@ -2,19 +2,19 @@
 
 user_name='backup'
 user_pass='secret'
-repl_host='192.168.1.14'
+repl_host='192.168.100.214'
 mysql_do="mysql -h $repl_host -u$user_name -p$user_pass --batch --skip-column-names -e "
 mysqldump_do="mysqldump -h $repl_host -u$user_name -p$user_pass "
-tbl_base_bcp_dir='/mnt/prod-data-drive/dbms-bcp/tablewise'
+tbl_base_bcp_dir='/mnt/backup-data/tables-backup'
 
 
 # Create target directory
-trg_bcp_dir="$tbl_base_bcp_dir/$(date -u +%Y%m%d_%H%M%S)_UTC"
+trg_bcp_dir="$tbl_base_bcp_dir/$(date -u +%Y%m%d_%H%M%S)_MSK"
 while [ -d "$trg_bcp_dir" ]
 do
     echo "$0: '$trg_bcp_dir' is in use. Sleep for 1 second."
     sleep 1
-    trg_bcp_dir="$tbl_base_bcp_dir/$(date -u +%Y%m%d_%H%M%S)_UTC"
+    trg_bcp_dir="$tbl_base_bcp_dir/$(date -u +%Y%m%d_%H%M%S)_MSK"
 done
 mkdir -p "$trg_bcp_dir"
 
@@ -48,4 +48,4 @@ tar -c -f "$trg_bcp_dir.tar" "$trg_bcp_dir"
 rm -rf "$trg_bcp_dir"
 chmod 660 "$trg_bcp_dir.tar"
 
-echo "$0: produced tablewise backup '$trg_bcp_dir.tar'."
+echo "$0: Tables backup is done '$trg_bcp_dir.tar'."
